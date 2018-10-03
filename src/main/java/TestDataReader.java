@@ -2,9 +2,11 @@ import java.io.*;
 import java.util.HashMap;
 
 public class TestDataReader {
+
     private static String testDataFile = System.getProperty("user.dir") + "/src/main/resources/TestData";
 
     private static HashMap<String, String> testDataMap = readDataFile();
+
     public static final String name = readDataFile("NAME");
     public static final String canRelist = readDataFile("CANRELIST");
     public static final String promotionName = readDataFile("PROMOTION_NAME");
@@ -17,6 +19,7 @@ public class TestDataReader {
         return testDataMap.get(Key);
     }
 
+    // Transfer test data from TestData file to hashmap testDataMap
     private static HashMap<String, String> readDataFile() {
         try {
             HashMap<String, String> TestDataMapTemp = new HashMap<String, String>();

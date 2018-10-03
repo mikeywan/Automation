@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.HashMap;
 
 public class ConfigReader {
+
     private static ConfigReader configReader = null;
     public HashMap<String, String> configMap = new HashMap();
     private String configFile = System.getProperty("user.dir") + "/src/main/resources/Config.cfg";
@@ -10,7 +11,9 @@ public class ConfigReader {
         readConfigFile();
     }
 
+    // Singleton method to get ConfigReader instance
     public static synchronized ConfigReader getInstance() {
+
         try {
             if (configReader == null)
                 configReader = new ConfigReader();
@@ -22,7 +25,8 @@ public class ConfigReader {
     }
 
     private Boolean readConfigFile() throws FileNotFoundException {
-        //Use InputStreamReader instead of FileReader
+
+        // Read config file and put all of them into config map
         BufferedReader bufferdReader = null;
 
         this.configMap = new HashMap();
@@ -51,6 +55,7 @@ public class ConfigReader {
         return true;
     }
 
+    // Get base endpoint from config map
     public String getBaseEndpoint() {
         return this.configMap.get("BASE_ENDPOINT");
     }
