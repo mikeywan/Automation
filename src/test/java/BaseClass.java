@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import java.io.IOException;
 
 public class BaseClass {
+    
     public static ConfigReader configReader = ConfigReader.getInstance();
     protected static final String BASE_ENDPOINT = configReader.getBaseEndpoint();
 
